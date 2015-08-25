@@ -1,10 +1,7 @@
-var ns_dummy = (function () {
-    var EXEC_URL = "https://dummy.ns.net/exec.json?jsoncallback=ns_dummy";
-    var SELF_URL = "https://dummy.ns.net/js/self.js";
-
-    addListener(window, "load", prepareNode, false);
+var ns_piggy = (function () {
+    var EXEC_URL = "https://dummy.ns.net/exec.json?jsoncallback=ns_piggy";
+    var SELF_URL = "https://dummy.ns.net/js/piggy.js";
     var body;
-
     function prepareNode() {
         var scripts = document.getElementsByTagName("script");
         var parameter = "";
@@ -56,6 +53,7 @@ var ns_dummy = (function () {
             element.attachEvent('on' + eventType, functionP);
         }
     }
+    addListener(window, "load", prepareNode, false);
     var element = this;
     return function (result) { startNode.apply(element, arguments);};
 }());
