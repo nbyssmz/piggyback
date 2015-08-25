@@ -3,7 +3,7 @@
 
 ##タグ例
 ```
-<script type="text/javascript" src="https://dummy.ns.net/js/self.js?pt=ABC0123"></script>
+<script type="text/javascript" src="https://dummy.ns.net/js/piggy.js?pt=ABC0123"></script>
 ```
 
 * パラメータ（pt=）の値に応じたjsonを出力する
