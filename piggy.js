@@ -11,7 +11,7 @@ var ns_piggy = (function () {
                 var data = scripts[i].src.split("?");
 
                 if (data.length === 2) {
-                    parameter = "&" + scripts[i].src.split("?")[1];
+                    parameter = "&" + data[1];
                 }
                 break;
             }
