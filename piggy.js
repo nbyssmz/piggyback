@@ -1,13 +1,13 @@
 var ns_piggy = (function () {
-    var EXEC_URL = "https://dummy.ns.net/exec.json?jsoncallback=ns_piggy";
-    var SELF_URL = "https://dummy.ns.net/js/piggy.js";
+    var EXEC_URL = "https://example.net/exec.json?jsoncallback=ns_piggy";
+    var SELF_URL = "https://example.com/js/piggy.js";
     var body;
     function prepareNode() {
         var scripts = document.getElementsByTagName("script");
         var parameter = "";
 
         for (var i = 0; i < scripts.length; i++) {
-            if (scripts[i].src.indexOf(SELF_URL) >= 0) {
+            if (scripts[i].src.indexOf(SELF_URL) == 0) {
                 var data = scripts[i].src.split("?");
 
                 if (data.length === 2) {
@@ -17,11 +17,9 @@ var ns_piggy = (function () {
             }
         }
 
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = EXEC_URL + parameter + "&" + new Date().getMilliseconds();
-
         body = document.getElementsByTagName("body")[0];
+        var script = document.createElement("script");
+        script.src = EXEC_URL + parameter + "&" + new Date().getMilliseconds();
         body.appendChild(script);
     }
     function createNode(result) {
@@ -41,7 +39,7 @@ var ns_piggy = (function () {
         if (result.nstag) {
             for (var i = 0; i < result.nstag.length; i++) {
                 (function (arg) {
-                    window.setTimeout(function () { createNode(arg);}, 500 * i);
+                    window.setTimeout(function () { createNode(arg);}, 0);
                 }(result.nstag[i]));
             }
         }
